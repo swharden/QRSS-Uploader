@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="QrssUploader.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="username" Type="System.String" Scope="User">
+      <Value Profile="(Default)">defaultName</Value>
+    </Setting>
+    <Setting Name="password" Type="System.String" Scope="User">
+      <Value Profile="(Default)">defaultPassword</Value>
+    </Setting>
+    <Setting Name="server" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ftp://default.com</Value>
+    </Setting>
+    <Setting Name="localPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\default\grabber\grab.png</Value>
+    </Setting>
+    <Setting Name="remotePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">/mysite/grab.png</Value>
+    </Setting>
+    <Setting Name="seconds" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
