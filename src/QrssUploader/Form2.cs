@@ -5,7 +5,9 @@ using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,12 +26,16 @@ namespace QrssUploader
 
         private void Log(string message, bool newLine = true)
         {
+            DateTime dt = DateTime.UtcNow;
+            string stamp = $"{dt.Hour:D2}:{dt.Minute:D2}:{dt.Second:D2}";
+            message = $"[{stamp}] {message}";
             Debug.WriteLine(message);
             if (newLine)
                 richTextBox1.AppendText(Environment.NewLine);
             richTextBox1.AppendText(message);
             richTextBox1.SelectionStart = richTextBox1.Text.Length;
             richTextBox1.ScrollToCaret();
+            Application.DoEvents();
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -91,6 +97,64 @@ namespace QrssUploader
         {
             if (lbLocalPaths.SelectedIndex >= 0)
                 lbLocalPaths.Items.RemoveAt(lbLocalPaths.SelectedIndex);
+        }
+
+        private void btnUpload_Click(object sender, EventArgs e)
+        {
+            Upload();
+        }
+
+        private void Upload()
+        {
+            Log("Starting upload sequence");
+            Enabled = false;
+
+            string uploadFolder = $"ftp://{tbServer.Text}/{tbRemotePath.Text}/";
+
+            // ensure the remote folder exists
+            WebRequest request = WebRequest.Create(uploadFolder);
+            request.Credentials = new NetworkCredential(tbUsername.Text, tbPassword.Text);
+            request.Method = WebRequestMethods.Ftp.MakeDirectory;
+            try
+            {
+                using (var resp = (FtpWebResponse)request.GetResponse())
+                {
+                    Log($"Created remove folder: {tbRemotePath.Text}");
+                }
+            }
+            catch (Exception)
+            {
+                Log($"Remote folder exists: {tbRemotePath.Text}");
+            }
+
+            // upload files individually
+            using (var client = new WebClient())
+            {
+                client.Credentials = new NetworkCredential(tbUsername.Text, tbPassword.Text);
+
+                // upload each of the files
+                foreach (string localPath in lbLocalPaths.Items)
+                {
+                    if (File.Exists(localPath))
+                    {
+                        string uploadPath = uploadFolder + Path.GetFileName(localPath);
+                        Log($"Uploading {uploadPath}");
+                        client.UploadFile(uploadPath, WebRequestMethods.Ftp.UploadFile, localPath);
+                    }
+                    else
+                    {
+                        Log($"local file does not exist: {localPath}");
+                    }
+                }
+            }
+
+            Log($"Uploads complete!");
+            Enabled = true;
+        }
+
+        private void tenMinTimer1_TimeToUpload(object sender, EventArgs e)
+        {
+            Upload();
         }
     }
 }

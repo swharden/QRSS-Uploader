@@ -158,13 +158,17 @@
             this.btnUpload.TabIndex = 20;
             this.btnUpload.Text = "Upload";
             this.btnUpload.UseVisualStyleBackColor = true;
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
             // richTextBox1
             // 
             this.richTextBox1.BackColor = System.Drawing.SystemColors.Control;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBox1.DetectUrls = false;
+            this.richTextBox1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.Location = new System.Drawing.Point(15, 323);
             this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
             this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
             this.richTextBox1.Size = new System.Drawing.Size(377, 108);
             this.richTextBox1.TabIndex = 31;
@@ -198,6 +202,7 @@
             this.tenMinTimer1.Name = "tenMinTimer1";
             this.tenMinTimer1.Size = new System.Drawing.Size(377, 65);
             this.tenMinTimer1.TabIndex = 32;
+            this.tenMinTimer1.TimeToUpload += new System.EventHandler(this.tenMinTimer1_TimeToUpload);
             // 
             // Form2
             // 

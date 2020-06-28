@@ -61,9 +61,10 @@ namespace QrssUploader
                 Upload();
         }
 
+        public event EventHandler TimeToUpload;
         private void Upload()
         {
-            Console.WriteLine($"{DateTime.UtcNow} UPLOADING!");
+            TimeToUpload?.Invoke(null, null);
         }
     }
 }

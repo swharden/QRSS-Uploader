@@ -82,17 +82,5 @@ namespace QrssUploader.Properties {
                 this["remotePath"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("15")]
-        public int delay {
-            get {
-                return ((int)(this["delay"]));
-            }
-            set {
-                this["delay"] = value;
-            }
-        }
     }
 }

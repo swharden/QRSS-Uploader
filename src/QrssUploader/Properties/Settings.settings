@@ -17,8 +17,5 @@
     <Setting Name="remotePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">/grabs/</Value>
     </Setting>
-    <Setting Name="delay" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">15</Value>
-    </Setting>
   </Settings>
 </SettingsFile>
