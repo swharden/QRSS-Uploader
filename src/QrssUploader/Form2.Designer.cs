@@ -81,16 +81,19 @@
             // 
             // lbLocalPaths
             // 
+            this.lbLocalPaths.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbLocalPaths.FormattingEnabled = true;
             this.lbLocalPaths.HorizontalScrollbar = true;
             this.lbLocalPaths.Location = new System.Drawing.Point(220, 25);
             this.lbLocalPaths.Name = "lbLocalPaths";
-            this.lbLocalPaths.Size = new System.Drawing.Size(172, 173);
+            this.lbLocalPaths.Size = new System.Drawing.Size(246, 173);
             this.lbLocalPaths.TabIndex = 11;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(278, 204);
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdd.Location = new System.Drawing.Point(352, 204);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(47, 23);
             this.btnAdd.TabIndex = 13;
@@ -100,7 +103,8 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(220, 204);
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelete.Location = new System.Drawing.Point(294, 204);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(52, 23);
             this.btnDelete.TabIndex = 12;
@@ -152,7 +156,8 @@
             // 
             // btnUpload
             // 
-            this.btnUpload.Location = new System.Drawing.Point(331, 204);
+            this.btnUpload.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUpload.Location = new System.Drawing.Point(405, 204);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(61, 23);
             this.btnUpload.TabIndex = 20;
@@ -162,6 +167,9 @@
             // 
             // richTextBox1
             // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.BackColor = System.Drawing.SystemColors.Control;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.richTextBox1.DetectUrls = false;
@@ -170,7 +178,7 @@
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
             this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
-            this.richTextBox1.Size = new System.Drawing.Size(377, 108);
+            this.richTextBox1.Size = new System.Drawing.Size(451, 117);
             this.richTextBox1.TabIndex = 31;
             this.richTextBox1.Text = "";
             // 
@@ -200,7 +208,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tenMinTimer1.Location = new System.Drawing.Point(15, 252);
             this.tenMinTimer1.Name = "tenMinTimer1";
-            this.tenMinTimer1.Size = new System.Drawing.Size(377, 65);
+            this.tenMinTimer1.Size = new System.Drawing.Size(451, 65);
             this.tenMinTimer1.TabIndex = 32;
             this.tenMinTimer1.TimeToUpload += new System.EventHandler(this.tenMinTimer1_TimeToUpload);
             // 
@@ -208,7 +216,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(407, 444);
+            this.ClientSize = new System.Drawing.Size(481, 453);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.tenMinTimer1);
