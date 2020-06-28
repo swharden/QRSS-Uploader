@@ -25,7 +25,7 @@ namespace QrssUploader.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("defaultName")]
+        [global::System.Configuration.DefaultSettingValueAttribute("defaultUsername")]
         public string username {
             get {
                 return ((string)(this["username"]));
@@ -61,19 +61,19 @@ namespace QrssUploader.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\default\\grabber\\grab.png")]
-        public string localPath {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string localPaths {
             get {
-                return ((string)(this["localPath"]));
+                return ((string)(this["localPaths"]));
             }
             set {
-                this["localPath"] = value;
+                this["localPaths"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("/mysite/grab.png")]
+        [global::System.Configuration.DefaultSettingValueAttribute("/grabs/")]
         public string remotePath {
             get {
                 return ((string)(this["remotePath"]));
@@ -85,13 +85,13 @@ namespace QrssUploader.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5")]
-        public int seconds {
+        [global::System.Configuration.DefaultSettingValueAttribute("15")]
+        public int delay {
             get {
-                return ((int)(this["seconds"]));
+                return ((int)(this["delay"]));
             }
             set {
-                this["seconds"] = value;
+                this["delay"] = value;
             }
         }
     }

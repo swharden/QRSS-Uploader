@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="username" Type="System.String" Scope="User">
-      <Value Profile="(Default)">defaultName</Value>
+      <Value Profile="(Default)">defaultUsername</Value>
     </Setting>
     <Setting Name="password" Type="System.String" Scope="User">
       <Value Profile="(Default)">defaultPassword</Value>
@@ -11,14 +11,14 @@
     <Setting Name="server" Type="System.String" Scope="User">
       <Value Profile="(Default)">ftp://default.com</Value>
     </Setting>
-    <Setting Name="localPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\default\grabber\grab.png</Value>
+    <Setting Name="localPaths" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="remotePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">/mysite/grab.png</Value>
+      <Value Profile="(Default)">/grabs/</Value>
     </Setting>
-    <Setting Name="seconds" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">5</Value>
+    <Setting Name="delay" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">15</Value>
     </Setting>
   </Settings>
 </SettingsFile>
