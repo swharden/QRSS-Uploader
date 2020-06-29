@@ -111,12 +111,12 @@ namespace QrssUploader
 
             string uploadFolder = $"ftp://{tbServer.Text}/{tbRemotePath.Text}/";
 
-            // ensure the remote folder exists
-            WebRequest request = WebRequest.Create(uploadFolder);
-            request.Credentials = new NetworkCredential(tbUsername.Text, tbPassword.Text);
-            request.Method = WebRequestMethods.Ftp.MakeDirectory;
             try
             {
+                // ensure the remote folder exists
+                WebRequest request = WebRequest.Create(uploadFolder);
+                request.Credentials = new NetworkCredential(tbUsername.Text, tbPassword.Text);
+                request.Method = WebRequestMethods.Ftp.MakeDirectory;
                 using (var resp = (FtpWebResponse)request.GetResponse())
                 {
                     Log($"Created remove folder: {tbRemotePath.Text}");
@@ -124,28 +124,36 @@ namespace QrssUploader
             }
             catch (Exception)
             {
-                Log($"Remote folder exists: {tbRemotePath.Text}");
+                Log($"Folder likely exists: {tbRemotePath.Text}");
             }
 
             // upload files individually
-            using (var client = new WebClient())
+            try
             {
-                client.Credentials = new NetworkCredential(tbUsername.Text, tbPassword.Text);
-
-                // upload each of the files
-                foreach (string localPath in lbLocalPaths.Items)
+                using (var client = new WebClient())
                 {
-                    if (File.Exists(localPath))
+                    client.Credentials = new NetworkCredential(tbUsername.Text, tbPassword.Text);
+
+                    // upload each of the files
+                    foreach (string localPath in lbLocalPaths.Items)
                     {
-                        string uploadPath = uploadFolder + Path.GetFileName(localPath);
-                        Log($"Uploading {uploadPath}");
-                        client.UploadFile(uploadPath, WebRequestMethods.Ftp.UploadFile, localPath);
-                    }
-                    else
-                    {
-                        Log($"local file does not exist: {localPath}");
+                        if (File.Exists(localPath))
+                        {
+                            string uploadPath = uploadFolder + Path.GetFileName(localPath);
+                            Log($"Uploading {uploadPath}");
+                            client.UploadFile(uploadPath, WebRequestMethods.Ftp.UploadFile, localPath);
+                        }
+                        else
+                        {
+                            Log($"local file does not exist: {localPath}");
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                Log($"FTP UPLOAD FAILED");
+                Log(ex);
             }
 
             Log($"Uploads complete!");
