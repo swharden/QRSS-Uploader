@@ -20,7 +20,7 @@ namespace QrssUploader
         {
             InitializeComponent();
             Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
-            Log($"QRSS Uploader {version.Major}.{version.Minor}", false);
+            Log($"QRSS Uploader {version.Major}.{version.Minor}.{version.Build}", false);
             btnLoad_Click(null, null);
         }
 
