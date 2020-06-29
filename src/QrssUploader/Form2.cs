@@ -153,7 +153,7 @@ namespace QrssUploader
             catch (Exception ex)
             {
                 Log($"FTP UPLOAD FAILED");
-                Log(ex);
+                Log(ex.ToString());
             }
 
             Log($"Uploads complete!");
