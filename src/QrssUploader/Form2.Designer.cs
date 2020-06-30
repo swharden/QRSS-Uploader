@@ -52,9 +52,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.Size = new System.Drawing.Size(61, 13);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Server";
+            this.label1.Text = "FTP Server";
             // 
             // tbServer
             // 
@@ -133,9 +133,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 113);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 13);
+            this.label4.Size = new System.Drawing.Size(131, 13);
             this.label4.TabIndex = 15;
-            this.label4.Text = "Username";
+            this.label4.Text = "Username (case sensitive)";
             // 
             // tbPassword
             // 

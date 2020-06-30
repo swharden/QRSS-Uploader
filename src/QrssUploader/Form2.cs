@@ -84,7 +84,7 @@ namespace QrssUploader
         private void btnAdd_Click(object sender, EventArgs e)
         {
             OpenFileDialog diag = new OpenFileDialog();
-            diag.Filter = "Images|*.jpeg;*.jpeg;*.gif;*.png;*.bmp";
+            diag.Filter = "Images|*.jpeg;*.jpg;*.gif;*.png;*.bmp";
             diag.Filter += "|All files (*.*)|*.*";
             diag.Title = "Select Grabber Image";
             if (diag.ShowDialog() == DialogResult.OK)
@@ -109,7 +109,8 @@ namespace QrssUploader
             Log("Starting upload sequence");
             Enabled = false;
 
-            string uploadFolder = $"ftp://{tbServer.Text}/{tbRemotePath.Text}/";
+            string prefix = tbServer.Text.StartsWith("ftp://", StringComparison.OrdinalIgnoreCase) ? "" : "ftp://";
+            string uploadFolder = $"{prefix}{tbServer.Text}/{tbRemotePath.Text}/";
 
             try
             {
@@ -156,7 +157,7 @@ namespace QrssUploader
                 Log(ex.ToString());
             }
 
-            Log($"Uploads complete!");
+            Log($"FTP disconnected.");
             Enabled = true;
         }
 
